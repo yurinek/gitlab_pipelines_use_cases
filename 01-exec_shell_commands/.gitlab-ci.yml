@@ -1,0 +1,20 @@
+stages:
+    - test_job
+    - deploy_job
+
+test_job:
+    stage: test_job
+    script:
+        - echo $TEST > /tmp/from_gitlab-ci
+    artifacts:
+        paths:
+            - test/bla.sh
+    only:
+        - master
+
+deploy_job:
+    stage: deploy_job
+    script:
+        - echo $TEST2 > /tmp/from_gitlab-ci2
+    only:
+        - master

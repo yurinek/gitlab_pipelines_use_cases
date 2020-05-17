@@ -1,0 +1,24 @@
+stages:
+    - test_job
+    - deploy_job
+
+test_job:
+    stage: test_job
+    script:
+        - bash test/bla.sh
+    artifacts:
+        paths:
+            - test/bla.sh
+    only:
+        changes:
+            - test/*
+            - test2/bla2.txt          # only run pipeline if changed files are under test directory or test2/bla2.txt 
+
+deploy_job:
+    stage: deploy_job
+    script:
+        - bash test2/bla2.sh
+    only:
+        changes:
+            - test/*
+            - test2/bla2.txt          # only run pipeline if changed files are under test directory or test2/bla2.txt 

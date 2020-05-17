@@ -1,0 +1,24 @@
+stages:
+    - test_job
+    - deploy_job
+
+test_job:
+    stage: test_job
+    script:
+        - bash test/bla.sh
+    artifacts:
+        paths:
+            - test/bla.sh
+    only:
+        variables:
+            - $TEST
+
+deploy_job:
+    stage: deploy_job
+    script:
+        - bash test2/bla2.sh
+    only:
+        variables:
+            - $TEST2
+
+        

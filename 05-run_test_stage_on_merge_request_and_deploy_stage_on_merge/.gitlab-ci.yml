@@ -1,0 +1,20 @@
+stages:
+    - test_job
+    - deploy_job
+
+test_job:
+    stage: test_job
+    script:
+        - bash test/bla.sh
+    artifacts:
+        paths:
+            - test/bla.sh
+    only:
+        - merge_requests                # runs after merge request comes in
+
+deploy_job:
+    stage: deploy_job
+    script:
+        - bash test2/bla2.sh
+    only:
+        - master                        # runs after merge request was merged
