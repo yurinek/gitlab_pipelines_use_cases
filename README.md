@@ -4,4 +4,4 @@ Prove of concept for handling different strategies of running Gitlab pipelines.<
 For each strategy see README.md inside single subdirectories<br>
 
 How to run:<br><br>
-Copy content of subdirectory of your choise to upper level of your gitlab repository and test pipelines.
+Copy contents of subdirectory of your choise to upper level of your gitlab repository and test pipelines.
